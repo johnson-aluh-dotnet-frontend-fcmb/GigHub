@@ -1,0 +1,67 @@
+﻿@model GigHub.ViewModel.GigViewModel
+@{
+    ViewBag.Title = "Gigs";
+}
+<h2>@Model.Heading</h2>
+<ul class="gigs">
+    @foreach (var gig in Model.UpcomingGigs)
+    {
+        <li>
+            <div class="date">
+                <div class="month">@gig.DateTime.ToString("MMM")</div>
+                <div class="day">@gig.DateTime.ToString("d ")</div>
+            </div>
+            <div class="details">
+                <span class="artist">@gig.Artist.Name</span>
+                @if (Model.ShowAction)
+                {
+                    <button data-gig-user-id="@gig.ArtistId" class="btn btn-link btn-sm js-toggle-follow">Following?</button>
+                }
+                <span class="genre">@gig.Genre.Name</span>
+                @if (Model.ShowAction) { 
+            <button data-gig-id="@gig.Id" class="btn btn-sm js-toggle-attendance pull-right">Going</button>
+                }
+            </div>
+        </li>
+    }
+</ul>
+@section scripts{
+    <script>
+      
+        $(document).ready(function () {
+            $(".js-toggle-attendance").click(function (e) {
+                var btntaget = $(e.target);
+                //$.post("/api/Attendances", btntaget.attr("data-gig-id")) {
+                //    alert("Data: " + data + "\nStatus: " + status);
+                //});
+                //$.post("/api/Attendances", btntaget.attr("data-gig-id")).done(function () {
+                $.post("/api/Attendances", { gigId: btntaget.attr("data-gig-id") })
+                    .done(function () { //Bind the btntaget.attr in an object literal
+
+                    btntaget.removeClass("btn-sm").addClass("btn-info").text("Going");
+                })
+                    .fail(function () {
+                        alert("something went wrong");
+                    })
+                    //.always(function () {
+                    //    alert("finished");
+                    //});
+            });
+
+            //Following
+            $(".js-toggle-follow").click(function (e) {
+                var btntaget = $(e.target);
+
+                //$.post("/api/Attendances", btntaget.attr("data-gig-user-id")).done(function () {
+                $.post("/api/Followings", { followeeId: btntaget.attr("data-gig-user-id") })
+                    .done(function () { //Bind the btntaget.attr in an object literal
+
+                    btntaget.text("Following");
+                })
+                    .fail(function () {
+                        alert("something went wrong");
+                    })
+            });
+        });
+    </script>
+    }

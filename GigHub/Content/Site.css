@@ -1,0 +1,96 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+/*overrinding Bootstrap*/
+.navbar-inverse {
+    background-color: red;
+    border-color: #080808;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: #fff;
+}
+.navbar-inverse .navbar-brand {
+    color: #fff;
+}
+input, select, textarea {
+    max-width: 380px;
+}
+.form-control {
+    border-radius: 8px;
+}
+.form-control:focus {
+    border-color: blue;        
+}
+.form-control:hover {
+    border-color: #808080;
+}
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+    color: #fff;
+    background-color: red;
+}
+.btn-sm, .btn-group-sm > .btn {
+    border-radius: 8px;
+}
+/**Page level Styling*/
+.gigs {
+    list-style: none;
+}
+.gigs > li {
+    position:relative;
+    margin-bottom: 30px;
+    }
+    .gigs > li .date {
+        width: 60px;
+        color: #fff;
+        text-align: center;
+        background: red;
+        border-radius: 6px 6px 0px 0px;
+    }
+    .gigs > li .month {
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: bold;
+        padding: 4px;
+    }
+.gigs > li .day {
+    color:#292828;
+    font-size: 14px;
+    background:#808080;
+    padding:6px;
+}
+.gigs > li .details {
+    position: absolute;
+    top: 0px;
+    left:70px;
+    padding:4px;
+    width:100px;
+}
+.gigs > li .artist{
+    font-weight:bold;
+    display:block;
+    padding-bottom:6px;
+}
+.gigs > li .genre{
+    font-size:12px;
+}

@@ -1,0 +1,65 @@
+Setting your Git username, email & password for every repository on your computer
+Open Git Bash.
+Set a Git username.
+$ git config --global user.name "AluhJohnson"
+3. Set an email address in Git.
+$ git config --global user.email "johnsonaluh@gmail.com"
+4. Set up password in Git.
+$ git config --global user.password "johnson*1309"
+Setting your Git username, email & password for a single repository on your computer
+Open Git Bash.
+Change the current working directory to the local repository where you want to configure the name that is associated with your Git commits.
+Set a Git username.
+$ git config user.name "YOUR USERNAME"
+4. Set an email address in Git.
+$ git config user.email "email@example.com"
+5. Set up password in Git.
+$ git config user.password "YOUR PASSWORD"
+
+
+How to connect your local project
+Now the fun begins. On your local machine, create a new project folder with the command:
+
+mkdir myproject
+Change into that newly-created directory with the command:
+
+cd myproject
+Initialize the repository with the command:
+
+git init
+Now let's create a readme file with the command:
+
+touch readme.txt
+Add the new file to the staging area with the command:
+
+git add .
+
+Now we're going to create our first commit. If you're not sure what a commit is, it's simple: A commit adds the latest changes to the source code to the newly-created repository. These changes will then be part of the head revision of the repository.
+
+To create the commit, issue the command:
+
+git commit -m "added readme"
+You can change the text in quotes to be whatever you want, such as "my first commit." Make sure the text in quotes describes what's been done for the commit.
+
+The next step will make use of the GitHub repository address. What we need to do is add the local repository to the origin (the name of the remote repository where you want to publish your commits) of the remote repository. This is done with the command:
+
+git remote add origin https://github.com/USER/PROJECTNAME.git
+Where USER is your GitHub username and PROJECTNAME is the name you gave your new project. 
+
+At this point you can then push your work to the remote with the command:
+
+git push -u origin master
+When you run this command, you'll be asked for your GitHub username, followed by your GitHub user password. Upon successful authentication, your local repository will be connected to the remote GitHub repository and the readme.txt file pushed to the remote.
+
+Let's add another file and push it to the remote repository. Issue the command:
+
+touch LICENSE
+Add the file to the staging area with the command:
+
+git add .
+Issue a new commit with the command:
+
+git commit -m "added license file"
+Push the changes to the master branch of the GitHub repository with the command:
+
+git push -u origin master
